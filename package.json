@@ -1,0 +1,112 @@
+{
+  "name": "etaliquam",
+  "version": "1.0.0",
+  "description": "JavaScript libraries for interfacing with Juno",
+  "author": "LauryShields",
+  "license": "MIT",
+  "workspaces": [
+    "packages/utils",
+    "packages/config",
+    "packages/core",
+    "packages/admin",
+    "packages/ledger",
+    "packages/analytics",
+    "packages/core-peer",
+    "packages/cli-tools"
+  ],
+  "devDependencies": {
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@size-limit/esbuild": "^11.0.2",
+    "@size-limit/preset-small-lib": "^11.0.2",
+    "@types/node": "^20.11.16",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "node-fetch": "^3.3.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tsdoc-markdown": "^0.3.0",
+    "typescript": "^5.2.2"
+  },
+  "size-limit": [
+    {
+      "name": "@junobuild/admin",
+      "path": "./packages/admin/dist/index.js",
+      "limit": "20 kB",
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@junobuild/utils",
+        "semver"
+      ]
+    },
+    {
+      "name": "@junobuild/core",
+      "path": "./packages/core/dist/index.js",
+      "limit": "120 kB"
+    },
+    {
+      "name": "@junobuild/core-worker",
+      "path": "./packages/core/dist/workers/auth.worker.js",
+      "limit": "100 kB"
+    },
+    {
+      "name": "@junobuild/core-peer",
+      "path": "./packages/core-peer/dist/index.js",
+      "limit": "20 kB",
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal",
+        "@dfinity/auth-client"
+      ]
+    },
+    {
+      "name": "@junobuild/ledger",
+      "path": "./packages/ledger/dist/index.js",
+      "limit": "7 kB",
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal"
+      ]
+    },
+    {
+      "name": "@junobuild/utils",
+      "path": "./packages/utils/dist/index.js",
+      "limit": "1 kB",
+      "ignore": [
+        "@dfinity/principal"
+      ]
+    },
+    {
+      "name": "@junobuild/analytics",
+      "path": "./packages/analytics/dist/index.js",
+      "limit": "4 kB",
+      "ignore": [
+        "@dfinity/agent",
+        "@dfinity/candid",
+        "@dfinity/principal"
+      ]
+    },
+    {
+      "name": "@junobuild/analytics-worker",
+      "path": "./packages/analytics/dist/workers/analytics.worker.js",
+      "limit": "110 kB"
+    },
+    {
+      "name": "@junobuild/config",
+      "path": "./packages/config/dist/index.js",
+      "limit": "30 B"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NashKilback/etaliquam.git"
+  }
+}
